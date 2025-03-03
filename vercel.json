@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/spider-idf-viewer.html"
+        }
+    ]
+}
