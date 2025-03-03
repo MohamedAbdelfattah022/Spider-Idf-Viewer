@@ -5,109 +5,162 @@
 :root {
 	font-size: 100%;
 	font-family: "Lato", sans-serif;
+	--primary-color: #007bff; /* Modern blue */
+	--background-light: #ffffff;
+	--background-dark: #2c3e50; /* Dark mode */
+	--text-color: #333;
+	--text-hover: #fff;
+	--secondary-color: #6c757d;
 }
 
 * {
 	box-sizing: border-box;
 }
 
-/* tags */
-
+/* Tags */
 body {
-	color: teal;
+	color: var(--text-color);
 	margin: 0;
 	overflow: hidden;
+	background: var(--background-light);
 }
 
 a {
-	color: #22bb22;
-	font-weight: 800;
+	color: var(--primary-color);
+	font-weight: 600;
 	text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-	background-color: yellow;
-	color: #aaa;
+	color: #0056b3;
 	text-decoration: underline;
 }
 
 button {
-	background-color: #ddd;
-	/* border: none; */
-	border-radius: 1rem;
-	color: #322;
+	background: #f8f9fa;
+	border: 1px solid #ced4da;
+	border-radius: 6px;
+	color: var(--text-color);
 	cursor: pointer;
-	padding: 3px 5px;
+	padding: 6px 12px;
+	transition: all 0.2s ease;
 }
 
 button:hover {
-	background: #c88;
-	color: #fff;
+	background: var(--primary-color);
+	color: var(--text-hover);
+	border-color: var(--primary-color);
 }
 
 button:active {
-	background: blue;
-	color: #fff;
+	background: #0056b3;
+	color: var(--text-hover);
 }
 
 center {
-	/* old school tag - just for fun - used in some footers */
-	font-size: 3ch;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 input[type="range"] {
 	-webkit-appearance: none;
+	appearance: none;
 	-moz-appearance: none;
-	background-color: #ddd;
-	border-radius: 2px;
-	height: 1.7ch;
+	background: #e9ecef;
+	border-radius: 4px;
+	height: 8px;
 	width: 98%;
 }
 
 input[type="range"]::-moz-range-thumb {
-	background-color: #888;
-	border-radius: 2;
-	height: 3ch;
+	background: var(--primary-color);
+	border-radius: 4px;
+	height: 16px;
 	width: 10px;
+	border: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none;
-	background-color: #888;
-	height: 3ch;
+	background: var(--primary-color);
+	height: 16px;
 	width: 10px;
+	border-radius: 4px;
 }
 
-/* classes */
-
 .divNavResize {
-	border-right: 1px solid teal;
+	border-right: 1px solid var(--secondary-color);
 	max-height: 60vh;
 	overflow: auto;
 	resize: vertical;
 }
 
-/* gmd = Google Material Design */
-
-.gmd-1 {
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	transition: all 0.25s ease-in-out;
+details {
+	margin: 0.5rem 0;
+	width: 100%;
 }
 
-.gmd-1:hover {
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+.sumPrimary {
+	background: linear-gradient(135deg, #f6f8fa, #e9ecef);
+	border-radius: 8px;
+	cursor: pointer;
+	padding: 12px 16px;
+	font-weight: 600;
+	color: var(--primary-color);
+	transition: all 0.3s ease;
+	outline: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.gmd-2 {
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+.sumPrimary:hover,
+.sumPrimary:focus {
+	background: linear-gradient(135deg, #e9ecef, #d8dee4);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	color: #0056b3;
 }
 
-.gmd-5 {
-	box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+details[open] > .sumPrimary {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.dropdown-content {
+	background: var(--background-light);
+	border-radius: 0 0 8px 8px;
+	padding: 12px 16px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	border-top: none;
+	animation: slideDown 0.3s ease-out;
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#navMenu {
+	background: var(--background-light);
+	border-radius: 12px;
+	margin: 1rem;
+	max-height: 90vh;
+	width: 25rem;
+	overflow: auto;
+	padding: 1rem;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+	resize: both;
+	z-index: 5;
+	transition: all 0.3s ease;
 }
 
 .info {
@@ -116,54 +169,48 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .info:hover {
-	background-color: yellow;
+	background: #fff3cd;
+	border-radius: 4px;
 }
 
 .infoImg {
-	opacity: 0.5;
+	opacity: 0.7;
 	width: 16px;
 }
 
 .infoTooltip {
-	border: 0 double #888;
-	border-radius: 2ch;
-	background: white;
+	border: 1px solid #ced4da;
+	border-radius: 8px;
+	background: var(--background-light);
 	display: none;
 	font: 100% monospace;
-	font-size: 1rem;
-	font-weight: normal;
+	font-size: 0.9rem;
 	margin-left: -12rem;
 	padding: 10px;
 	position: absolute;
 	max-width: 20rem;
 	z-index: 1000;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .info:hover > .infoTooltip {
 	display: block;
 }
 
-.sumPrimary {
-	background-color: #eee;
-	border-radius: 2ch;
-	cursor: pointer;
-	outline: none;
-	padding: 1ch;
-}
-
-
-.THRbutChild {
-	
-	border-radius: 0.5rem;
-}
-
 .THRbutParent {
-	/* border: 1px solid red; */
-	background-color: #eee;
-	border-radius: 0.5ch;
-	font-size: 2rem;
-	margin: 0 1rem;
+	background: #f8f9fa;
+	border: 1px solid #ced4da;
+	border-radius: 6px;
+	font-size: 1.5rem;
+	margin: 0 0.5rem;
+	padding: 6px 12px;
 	vertical-align: bottom;
+	transition: all 0.2s ease;
+}
+
+.THRbutParent:hover {
+	background: var(--primary-color);
+	color: var(--text-hover);
 }
 
 .THRdivButtonGroup {
@@ -176,40 +223,44 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .THRdivChild {
-	background-color: #eee;
-	border-radius: 0.5ch;
-	bottom: 2.9rem;
+	background: var(--background-light);
+	border-radius: 6px;
+	bottom: 3rem;
 	display: none;
-	/* left: 5rem; */
-	padding: 0.5rem;
+	padding: 8px;
 	position: absolute;
 	text-align: left;
-	width: 6rem;
+	width: 8rem;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* IDs */
+.THRbutChild {
+	border-radius: 4px;
+	width: 100%;
+	margin: 4px 0;
+}
 
 #detNavMenu {
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 2ch;
-	margin: 1ch;
+	border-radius: 12px;
+	margin: 1rem;
 	position: absolute;
 }
 
 #divPopUp {
-	background-color: white;
-	border-radius: 0.5ch;
-	margin: 1ch 0;
+	background: var(--background-light);
+	border-radius: 8px;
+	margin: 1rem 0;
 	max-height: 30vh;
-	padding: 1ch;
+	padding: 1rem;
 	overflow: auto;
 	position: absolute;
 	left: 30%;
 	top: 30%;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #THRftr {
-	bottom: 1ch;
+	bottom: 1rem;
 	left: 0;
 	margin: 0 auto;
 	position: fixed;
@@ -218,30 +269,6 @@ input[type="range"]::-webkit-slider-thumb {
 	max-width: 50%;
 }
 
-#navMenu {
-	background-color: #fafffa;
-	border: 0 solid red;
-	border-radius: 2ch;
-	margin: 1ch;
-	max-height: 90vh;
-	width: 17rem;
-	overflow: auto;
-	padding: 1ch 1ch 0 1ch;
-	resize: both;
-	z-index: 5;
-}
-
 #sumNavMenu {
-	margin: 1ch;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		background-color: #1e1f23;
-		color: #aaa;
-	}
-
-	#navMenu {
-		background-color: #555;
-	}
+	width: fit-content;
 }
